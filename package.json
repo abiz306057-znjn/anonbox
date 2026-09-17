@@ -1,0 +1,129 @@
+{
+  "name": "anonbox",
+  "version": "3.0.0",
+  "description": "🎭 AnonBox — ربات پیام ناشناس تلگرام با WebApp مدرن، چندزبانه، بسته‌های اشتراک و Telegram Stars",
+  "private": true,
+  "main": "bot/src/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "anonymous",
+    "messages",
+    "webapp",
+    "pwa",
+    "grammy",
+    "sqlite",
+    "stars",
+    "i18n",
+    "persian",
+    "farsi",
+    "multilingual",
+    "packages",
+    "referral",
+    "alias"
+  ],
+  "author": "AnonBox",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/anonbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/anonbox/issues"
+  },
+  "homepage": "https://github.com/yourusername/anonbox#readme",
+
+  "scripts": {
+    "start": "npm --prefix bot start",
+    "dev": "npm --prefix bot run dev",
+
+    "install:bot": "npm --prefix bot install",
+    "install:all": "npm --prefix bot install",
+
+    "migrate": "node scripts/migrate.js",
+    "migrate:reset": "node scripts/migrate.js --reset --backup",
+    "migrate:status": "node scripts/migrate.js --status",
+    "migrate:help": "node scripts/migrate.js --help",
+
+    "backup": "node scripts/migrate.js --backup",
+
+    "setup": "npm run install:bot && npm run migrate",
+    "fresh": "npm run migrate:reset && npm start",
+    "reset": "npm run migrate:reset",
+
+    "test": "echo \"🧪 تست...\" && npm run migrate:status",
+    "lint": "echo \"Lint در آینده اضافه می‌شه\"",
+    "format": "echo \"Format در آینده اضافه می‌شه\"",
+
+    "clean": "rm -rf node_modules bot/node_modules",
+    "clean:db": "rm -f bot/data/*.db bot/data/*.db-*",
+    "clean:all": "npm run clean && npm run clean:db",
+
+    "info": "node scripts/migrate.js --status"
+  },
+
+  "workspaces": [
+    "bot"
+  ],
+
+  "dependencies": {},
+
+  "devDependencies": {},
+
+  "optionalDependencies": {},
+
+  "peerDependencies": {},
+
+  "files": [
+    "bot/src/**/*",
+    "webapp/**/*",
+    "shared/**/*",
+    "scripts/**/*",
+    "docs/**/*",
+    "!**/node_modules",
+    "!**/.env",
+    "!**/*.db",
+    "!**/*.log"
+  ],
+
+  "publishConfig": {
+    "access": "private"
+  },
+
+  "config": {
+    "app_name": "AnonBox",
+    "app_name_fa": "صندوق راز",
+    "app_name_ar": "صندوق السر",
+    "bot_username": "AnonBoxBot",
+    "db_path": "bot/data/anonbox.db",
+    "webapp_path": "webapp",
+    "version": "3.0.0",
+    "languages": ["fa", "en", "ar"],
+    "default_language": "fa"
+  },
+
+  "directories": {
+    "bot": "./bot",
+    "webapp": "./webapp",
+    "shared": "./shared",
+    "scripts": "./scripts",
+    "docs": "./docs",
+    "test": "./tests"
+  },
+
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
+}

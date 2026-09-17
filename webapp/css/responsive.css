@@ -1,0 +1,643 @@
+/**
+ * responsive.css
+ * ریسپانسیو برای موبایل، تبلت و دسکتاپ
+ * نسخه ۳.۰ — Mobile-first با پشتیبانی کامل RTL/LTR
+ */
+
+/* ============================================================
+ *  موبایل کوچک (پیش‌فرض)
+ *  تا 360px — تنظیمات در variables.css
+ * ============================================================ */
+
+@media (max-width: 360px) {
+  .hero-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-title {
+    font-size: var(--fs-2xl);
+  }
+
+  .stat-value,
+  .inbox-stat-value,
+  .referral-stat-value,
+  .admin-stat-value {
+    font-size: var(--fs-lg);
+  }
+
+  .profile-avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .profile-name {
+    font-size: var(--fs-xl);
+  }
+
+  .vip-hero-icon {
+    font-size: 56px;
+  }
+
+  .referral-icon {
+    font-size: 44px;
+  }
+
+  .plan-price-value {
+    font-size: var(--fs-3xl);
+  }
+
+  .nav-label {
+    font-size: 9px;
+  }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .brand-name {
+    font-size: var(--fs-sm);
+  }
+
+  .plan-card {
+    padding: var(--space-5) var(--space-4);
+  }
+}
+
+/* ============================================================
+ *  موبایل (375px+)
+ * ============================================================ */
+
+@media (min-width: 375px) {
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .nav-label {
+    font-size: 11px;
+  }
+}
+
+/* ============================================================
+ *  تبلت کوچک (480px+)
+ * ============================================================ */
+
+@media (min-width: 480px) {
+  .app-main {
+    padding-inline: var(--space-6);
+  }
+
+  .hero-avatar {
+    width: 108px;
+    height: 108px;
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* پلن‌ها دو ستونه */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    align-items: stretch;
+  }
+
+  .plan-card {
+    margin: 0;
+    padding: var(--space-6) var(--space-5);
+  }
+
+  /* مراحل سه ستونه */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+
+  .step {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .step:hover {
+    transform: translateY(-4px);
+  }
+
+  [dir='ltr'] .step:hover {
+    transform: translateY(-4px);
+  }
+
+  .step-content {
+    text-align: center;
+  }
+
+  /* آمار ادمین ۴ ستونه */
+  .admin-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* کارت پاداش — چیدمان جدید */
+  .reward-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .reward-badge {
+    position: static;
+    display: inline-block;
+    width: fit-content;
+    margin-bottom: var(--space-2);
+  }
+
+  .reward-content {
+    margin: 0;
+    flex: 1;
+  }
+
+  .reward-progress {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+ *  تبلت (768px+)
+ * ============================================================ */
+
+@media (min-width: 768px) {
+  /* پس‌زمینه زیبا */
+  body {
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(124, 58, 237, 0.15),
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at bottom left,
+        rgba(236, 72, 153, 0.1),
+        transparent 60%
+      ),
+      var(--bg-primary);
+    min-height: 100vh;
+  }
+
+  .app-main {
+    padding: var(--space-6) var(--space-8);
+    padding-bottom: calc(
+      var(--nav-height) + var(--safe-bottom) + var(--space-8)
+    );
+    gap: var(--space-6);
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* هدر — وسط‌چین */
+  .app-header {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-inline: var(--space-8);
+    padding-top: calc(var(--safe-top) + 16px);
+    padding-bottom: 16px;
+  }
+
+  /* منوی پایین — وسط‌چین با border-radius */
+  .bottom-nav {
+    max-width: 640px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-inline-start: 1px solid var(--border);
+    border-inline-end: 1px solid var(--border);
+  }
+
+  /* پس‌زمینه blob */
+  .bg-blob {
+    opacity: 0.5;
+  }
+
+  /* مودال وسط‌چین */
+  .modal-overlay {
+    align-items: center;
+    padding: var(--space-6);
+  }
+
+  .modal {
+    border-radius: var(--radius-xl);
+    max-height: 85vh;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+    animation: modal-in-center 0.4s var(--ease-spring);
+  }
+
+  @keyframes modal-in-center {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .toast-container {
+    top: 24px;
+  }
+
+  .hero {
+    padding: var(--space-8) 0;
+  }
+
+  .hero-title {
+    font-size: var(--fs-4xl);
+  }
+
+  .profile-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .plan-card {
+    padding: var(--space-7) var(--space-6);
+  }
+
+  .plan-price-value {
+    font-size: 48px;
+  }
+
+  .messages-list {
+    gap: var(--space-4);
+  }
+
+  /* پیام‌ها با hover بهتر */
+  .message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ============================================================
+ *  دسکتاپ (1024px+)
+ * ============================================================ */
+
+@media (min-width: 1024px) {
+  .app-main {
+    padding: var(--space-8) var(--space-10);
+    max-width: 720px;
+  }
+
+  .app-header {
+    max-width: 720px;
+  }
+
+  .bottom-nav {
+    max-width: 720px;
+  }
+
+  .hero-avatar {
+    width: 128px;
+    height: 128px;
+  }
+
+  .plans-grid {
+    gap: var(--space-6);
+  }
+}
+
+/* ============================================================
+ *  دسکتاپ بزرگ (1400px+)
+ * ============================================================ */
+
+@media (min-width: 1400px) {
+  .app-main {
+    max-width: 800px;
+  }
+
+  .app-header,
+  .bottom-nav {
+    max-width: 800px;
+  }
+}
+
+/* ============================================================
+ *  ارتفاع کم (لپ‌تاپ‌های کوچک)
+ * ============================================================ */
+
+@media (max-height: 700px) {
+  .hero {
+    padding: var(--space-4) 0;
+  }
+
+  .hero-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-title {
+    font-size: var(--fs-2xl);
+  }
+
+  .vip-hero {
+    padding: var(--space-4);
+  }
+
+  .vip-hero-icon {
+    font-size: 56px;
+  }
+
+  .referral-hero {
+    padding: var(--space-4);
+  }
+
+  .referral-icon {
+    font-size: 44px;
+  }
+
+  .empty-state {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
+/* ============================================================
+ *  حالت افقی روی موبایل
+ * ============================================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --header-height: 52px;
+    --nav-height: 56px;
+  }
+
+  .app-header {
+    min-height: 52px;
+    padding-top: calc(var(--safe-top) + 6px);
+    padding-bottom: 6px;
+  }
+
+  .hero {
+    padding: var(--space-3) 0;
+  }
+
+  .hero-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-title {
+    font-size: var(--fs-xl);
+  }
+
+  .brand-name {
+    font-size: var(--fs-sm);
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-item {
+    gap: 0;
+  }
+
+  .bottom-nav {
+    height: 56px;
+  }
+}
+
+/* ============================================================
+ *  دستگاه‌های لمسی (حذف hover)
+ * ============================================================ */
+
+@media (hover: none) {
+  .stat-card:hover,
+  .step:hover,
+  .reward-card:hover,
+  .plan-card:hover,
+  .message-card:hover,
+  .referral-item:hover,
+  .admin-stat-card:hover,
+  .inbox-stat:hover,
+  .referral-stat:hover {
+    transform: none;
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .btn-danger:hover:not(:disabled),
+  .btn-vip:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .link-copy-btn:hover {
+    transform: none;
+  }
+
+  .nav-item:hover {
+    color: var(--text-tertiary);
+  }
+
+  /* پیام‌ها رو یه‌کم بزرگ‌تر کن */
+  .message-card {
+    padding: var(--space-5);
+  }
+}
+
+/* ============================================================
+ *  نمایشگرهای Retina
+ * ============================================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .brand-logo,
+  .nav-icon {
+    /* می‌تونی تصاویر ۲x بدی */
+  }
+}
+
+/* ============================================================
+ *  حالت چاپ
+ * ============================================================ */
+
+@media print {
+  .app-header,
+  .bottom-nav,
+  .toast-container,
+  .modal-overlay,
+  .loader-overlay,
+  .bg-decoration,
+  .header-actions {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .app-main {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .card,
+  .stat-card,
+  .message-card,
+  .plan-card,
+  .reward-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* ============================================================
+ *  ترجیح کنتراست بالا
+ * ============================================================ */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border: rgba(255, 255, 255, 0.2);
+    --border-strong: rgba(255, 255, 255, 0.35);
+    --text-secondary: #D0D0D8;
+  }
+
+  .btn {
+    border-width: 2px;
+  }
+
+  .card,
+  .stat-card,
+  .plan-card {
+    border-width: 2px;
+  }
+}
+
+/* ============================================================
+ *  حالت کم‌مصرف (Data Saver)
+ * ============================================================ */
+
+@media (prefers-reduced-data: reduce) {
+  .bg-blob {
+    display: none;
+  }
+
+  .anim-float,
+  .anim-pulse,
+  .hero-avatar,
+  .vip-hero-icon,
+  .referral-icon {
+    animation: none;
+  }
+}
+
+/* ============================================================
+ *  iPhone با notch
+ * ============================================================ */
+
+@supports (padding: max(0px)) {
+  .app-header {
+    padding-top: max(calc(var(--safe-top) + 12px), 16px);
+  }
+
+  .app-main {
+    padding-bottom: max(
+      calc(var(--nav-height) + var(--safe-bottom) + var(--space-6)),
+      calc(var(--nav-height) + 32px)
+    );
+  }
+
+  .bottom-nav {
+    padding-bottom: max(var(--safe-bottom), 8px);
+  }
+
+  .modal {
+    padding-bottom: max(var(--safe-bottom), 0px);
+  }
+}
+
+/* ============================================================
+ *  صفحه‌های بسیار بزرگ (1920px+)
+ * ============================================================ */
+
+@media (min-width: 1920px) {
+  .app-main {
+    max-width: 900px;
+  }
+
+  .app-header,
+  .bottom-nav {
+    max-width: 900px;
+  }
+}
+
+/* ============================================================
+ *  کاهش شفافیت (Transparency)
+ * ============================================================ */
+
+@media (prefers-reduced-transparency: reduce) {
+  .app-header,
+  .bottom-nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-primary);
+  }
+
+  .toast {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-elevated);
+  }
+
+  .modal-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* ============================================================
+ *  زبان عربی (اتصال بهتر حروف)
+ * ============================================================ */
+
+[data-lang='ar'] body {
+  font-family: 'Vazirmatn', 'Tahoma', system-ui, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+[data-lang='ar'] .hero-title,
+[data-lang='ar'] .vip-hero-title,
+[data-lang='ar'] .referral-title {
+  letter-spacing: 0;
+}
+
+/* ============================================================
+ *  کاهش اندازه فونت کلی (اختیاری)
+ * ============================================================ */
+
+@media (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+
+  .nav-label {
+    font-size: 8px;
+  }
+
+  .brand-name {
+    display: none;
+  }
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark" data-lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  />
+  <meta name="theme-color" content="#0F0E17" />
+  <meta name="description" content="صندوق راز — پیام‌های ناشناس تلگرام" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <title>🎭 صندوق راز</title>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Favicon (ایموجی به‌جای فایل) -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>"
+  />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Fonts از CDN -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body class="app-body">
+
+  <!-- ============================================================
+       پس‌زمینه تزئینی
+       ============================================================ -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+
+  <!-- ============================================================
+       اپ اصلی — SPA Container
+       ============================================================ -->
+  <div id="app" class="app">
+
+    <!-- ==========================================================
+         هدر
+         ========================================================== -->
+    <header class="app-header" id="app-header">
+
+      <!-- لوگو + نام -->
+      <div class="header-brand">
+        <img
+          src="assets/images/logo.png"
+          alt="صندوق راز"
+          class="brand-logo"
+          width="32"
+          height="32"
+          onerror="this.style.display='none'"
+        />
+        <span class="brand-name" data-i18n="app.name">صندوق راز</span>
+      </div>
+
+      <!-- اکشن‌های هدر -->
+      <div class="header-actions">
+
+        <!-- تغییر زبان -->
+        <button
+          class="header-action"
+          id="btn-language"
+          aria-label="Language"
+          title="Language"
+          type="button"
+        >
+          <span class="la-text">LA</span>
+        </button>
+
+        <!-- تغییر تم -->
+        <button
+          class="header-action"
+          id="btn-theme"
+          aria-label="Theme"
+          title="Theme"
+          type="button"
+        >
+          <span class="theme-icon-dark">🌙</span>
+          <span class="theme-icon-light" hidden>☀️</span>
+        </button>
+
+      </div>
+    </header>
+
+    <!-- ==========================================================
+         محتوای اصلی — Router این‌جا رندر می‌کنه
+         ========================================================== -->
+    <main class="app-main" id="app-content">
+      <!-- لودینگ اولیه -->
+      <div class="loading-state">
+        <div class="loader"></div>
+        <p data-i18n="common.loading">در حال بارگذاری...</p>
+      </div>
+    </main>
+
+    <!-- ==========================================================
+         منوی پایین — ثابت
+         ========================================================== -->
+    <nav class="bottom-nav" id="bottom-nav" role="navigation" aria-label="منوی اصلی">
+
+      <!-- خانه -->
+      <a
+        href="#/home"
+        class="nav-item"
+        data-page="home"
+        data-i18n-aria="nav.home"
+        aria-label="خانه"
+      >
+        <svg
+          class="nav-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="nav-label" data-i18n="nav.home">خانه</span>
+      </a>
+
+      <!-- صندوق -->
+      <a
+        href="#/inbox"
+        class="nav-item"
+        data-page="inbox"
+        data-i18n-aria="nav.inbox"
+        aria-label="صندوق"
+      >
+        <svg
+          class="nav-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span class="nav-label" data-i18n="nav.inbox">صندوق</span>
+        <span class="nav-badge" id="nav-inbox-badge" hidden>0</span>
+      </a>
+
+      <!-- دعوت -->
+      <a
+        href="#/referral"
+        class="nav-item"
+        data-page="referral"
+        data-i18n-aria="nav.referral"
+        aria-label="دعوت"
+      >
+        <svg
+          class="nav-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="20 12 20 22 4 22 4 12"></polyline>
+          <rect x="2" y="7" width="20" height="5"></rect>
+          <line x1="12" y1="22" x2="12" y2="7"></line>
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+        </svg>
+        <span class="nav-label" data-i18n="nav.referral">دعوت</span>
+      </a>
+
+      <!-- VIP -->
+      <a
+        href="#/upgrade"
+        class="nav-item"
+        data-page="upgrade"
+        data-i18n-aria="nav.vip"
+        aria-label="VIP"
+      >
+        <svg
+          class="nav-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span class="nav-label" data-i18n="nav.vip">VIP</span>
+      </a>
+
+      <!-- تنظیمات -->
+      <a
+        href="#/settings"
+        class="nav-item"
+        data-page="settings"
+        data-i18n-aria="nav.settings"
+        aria-label="تنظیمات"
+      >
+        <svg
+          class="nav-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span class="nav-label" data-i18n="nav.settings">تنظیمات</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+  <!-- ============================================================
+       توست کانتینر
+       ============================================================ -->
+  <div
+    class="toast-container"
+    id="toast-container"
+    role="region"
+    aria-live="polite"
+  ></div>
+
+  <!-- ============================================================
+       لودر سراسری
+       ============================================================ -->
+  <div class="loader-overlay" id="loader" hidden>
+    <div class="loader"></div>
+  </div>
+
+  <!-- ============================================================
+       مودال داینامیک
+       ============================================================ -->
+  <div id="modal-root"></div>
+
+  <!-- ============================================================
+       صداها
+       ============================================================ -->
+  <audio id="bg-music" loop preload="none" playsinline>
+    <source src="assets/sounds/bg-music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="sfx-click" preload="auto">
+    <source src="assets/sounds/click.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="sfx-success" preload="auto">
+    <source src="assets/sounds/success.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="sfx-gift" preload="auto">
+    <source src="assets/sounds/gift.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="sfx-error" preload="auto">
+    <source src="assets/sounds/error.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ============================================================
+       اسکریپت‌ها — ترتیب مهمه!
+       ============================================================ -->
+
+  <!-- ۱. Shared -->
+  <script src="../shared/constants.js"></script>
+  <script src="../shared/locales.js"></script>
+
+  <!-- ۲. هسته (telegram + api + ui + theme + audio) -->
+  <script src="js/core.js"></script>
+
+  <!-- ۳. i18n -->
+  <script src="js/i18n.js"></script>
+
+  <!-- ۴. Router -->
+  <script src="js/router.js"></script>
+
+  <!-- ۵. صفحات -->
+  <script src="js/pages.js"></script>
+
+  <!-- ۶. راه‌انداز -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>

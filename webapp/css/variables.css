@@ -1,0 +1,258 @@
+/**
+ * variables.css
+ * متغیرهای سراسری — رنگ، فونت، شعاع، سایه، ترنزیشن
+ * نسخه ۳.۰
+ */
+
+:root {
+  /* ============================================================
+   *  پالت رنگ اصلی
+   * ============================================================ */
+
+  /* پس‌زمینه */
+  --bg-primary: #0F0E17;
+  --bg-secondary: #1A1927;
+  --bg-tertiary: #232135;
+  --bg-elevated: #2A2840;
+
+  /* سطح‌ها */
+  --surface-1: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --surface-3: rgba(255, 255, 255, 0.08);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* رنگ اصلی — بنفش */
+  --primary: #7C3AED;
+  --primary-light: #9F67FF;
+  --primary-dark: #5B21B6;
+  --primary-soft: rgba(124, 58, 237, 0.12);
+  --primary-hover: #6D28D9;
+
+  /* رنگ ثانویه — صورتی */
+  --secondary: #EC4899;
+  --secondary-light: #F472B6;
+  --secondary-dark: #BE185D;
+  --secondary-soft: rgba(236, 72, 153, 0.12);
+
+  /* رنگ‌های حالت */
+  --success: #10B981;
+  --success-soft: rgba(16, 185, 129, 0.12);
+  --success-hover: #059669;
+
+  --warning: #F59E0B;
+  --warning-soft: rgba(245, 158, 11, 0.12);
+
+  --error: #EF4444;
+  --error-soft: rgba(239, 68, 68, 0.12);
+  --error-hover: #DC2626;
+
+  --info: #3B82F6;
+  --info-soft: rgba(59, 130, 246, 0.12);
+
+  /* رنگ VIP — طلایی */
+  --vip-gold: #FBBF24;
+  --vip-gold-light: #FCD34D;
+  --vip-gold-dark: #D97706;
+  --vip-soft: rgba(251, 191, 36, 0.12);
+
+  /* متن */
+  --text-primary: #FFFFFE;
+  --text-secondary: #A7A9BE;
+  --text-tertiary: #6B6D82;
+  --text-muted: #4A4C5E;
+  --text-inverse: #0F0E17;
+
+  /* مرزها */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-focus: var(--primary);
+
+  /* ============================================================
+   *  گرادیانت‌ها
+   * ============================================================ */
+
+  --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, #EC4899 0%, #7C3AED 100%);
+  --gradient-vip: linear-gradient(135deg, #FBBF24 0%, #EC4899 100%);
+  --gradient-vip-soft: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.15) 0%,
+    rgba(236, 72, 153, 0.15) 100%
+  );
+  --gradient-gold: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+
+  /* ============================================================
+   *  فونت‌ها
+   * ============================================================ */
+
+  --font-fa: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui,
+    sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* اندازه‌ها — داینامیک با clamp */
+  --fs-xs: clamp(10px, 2.5vw, 11px);
+  --fs-sm: clamp(12px, 3vw, 13px);
+  --fs-base: clamp(14px, 3.5vw, 15px);
+  --fs-md: clamp(15px, 3.7vw, 16px);
+  --fs-lg: clamp(16px, 4vw, 18px);
+  --fs-xl: clamp(20px, 5vw, 22px);
+  --fs-2xl: clamp(24px, 6vw, 28px);
+  --fs-3xl: clamp(30px, 8vw, 36px);
+  --fs-4xl: clamp(38px, 10vw, 48px);
+
+  /* وزن فونت */
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 800;
+
+  /* ارتفاع خط */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* ============================================================
+   *  فاصله‌ها
+   * ============================================================ */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* فاصله‌های داینامیک */
+  --container-padding: clamp(12px, 4vw, 20px);
+  --container-max: 100%;
+
+  /* ============================================================
+   *  شعاع گوشه‌ها
+   * ============================================================ */
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ============================================================
+   *  سایه‌ها
+   * ============================================================ */
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.55);
+
+  --shadow-primary: 0 4px 20px rgba(124, 58, 237, 0.35);
+  --shadow-primary-lg: 0 8px 32px rgba(124, 58, 237, 0.45);
+  --shadow-secondary: 0 4px 20px rgba(236, 72, 153, 0.35);
+  --shadow-vip: 0 4px 20px rgba(251, 191, 36, 0.35);
+  --shadow-success: 0 4px 20px rgba(16, 185, 129, 0.35);
+
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* ============================================================
+   *  ترنزیشن و انیمیشن
+   * ============================================================ */
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transition-fast: 0.15s var(--ease-in-out);
+  --transition-base: 0.25s var(--ease-in-out);
+  --transition-slow: 0.4s var(--ease-out);
+
+  /* ============================================================
+   *  z-index
+   * ============================================================ */
+
+  --z-base: 1;
+  --z-header: 100;
+  --z-nav: 100;
+  --z-dropdown: 200;
+  --z-modal: 500;
+  --z-toast: 700;
+  --z-loader: 900;
+
+  /* ============================================================
+   *  ابعاد — فیت با عرض موبایل
+   * ============================================================ */
+
+  --header-height: 60px;
+  --nav-height: 60px;
+
+  /* امن‌سازی برای notch */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* ارتفاع پویا (برای موبایل) */
+  --vh: 1vh;
+}
+
+/* ============================================================
+ *  تم روشن
+ * ============================================================ */
+
+[data-theme='light'] {
+  --bg-primary: #F8F8FC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F1F7;
+  --bg-elevated: #FFFFFF;
+
+  --surface-1: rgba(0, 0, 0, 0.02);
+  --surface-2: rgba(0, 0, 0, 0.04);
+  --surface-3: rgba(0, 0, 0, 0.06);
+  --surface-hover: rgba(0, 0, 0, 0.04);
+
+  --text-primary: #0F0E17;
+  --text-secondary: #4A4C5E;
+  --text-tertiary: #6B6D82;
+  --text-muted: #A7A9BE;
+  --text-inverse: #FFFFFF;
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  --shadow-sm: 0 2px 8px rgba(15, 14, 23, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 14, 23, 0.08);
+  --shadow-lg: 0 8px 32px rgba(15, 14, 23, 0.12);
+  --shadow-xl: 0 12px 48px rgba(15, 14, 23, 0.16);
+
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.06) 0%,
+    rgba(236, 72, 153, 0.02) 100%
+  );
+}
+
+/* ============================================================
+ *  گوشی کوچک (کمتر از ۳۶۰px)
+ * ============================================================ */
+
+@media (max-width: 360px) {
+  :root {
+    --header-height: 56px;
+    --nav-height: 56px;
+    --container-padding: 10px;
+  }
+}

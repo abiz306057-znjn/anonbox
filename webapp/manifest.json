@@ -1,0 +1,152 @@
+{
+  "name": "صندوق راز — پیام‌های ناشناس",
+  "short_name": "صندوق راز",
+  "description": "دریافت و ارسال پیام‌های ناشناس در تلگرام — با لینک اختصاصی، شناسه ناشناس و سیستم دعوت دوستان",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait",
+  "theme_color": "#0F0E17",
+  "background_color": "#0F0E17",
+  "categories": ["social", "communication", "entertainment"],
+  "prefer_related_applications": false,
+  "id": "anonbox-v3",
+
+  "icons": [
+    {
+      "src": "assets/images/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/images/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "صندوق پیام",
+      "short_name": "صندوق",
+      "description": "مشاهده پیام‌های ناشناس دریافتی",
+      "url": "./index.html#/inbox",
+      "icons": [
+        {
+          "src": "assets/images/icon-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "دعوت دوستان",
+      "short_name": "دعوت",
+      "description": "دعوت دوستان و دریافت پاداش",
+      "url": "./index.html#/referral",
+      "icons": [
+        {
+          "src": "assets/images/icon-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "خرید بسته",
+      "short_name": "بسته‌ها",
+      "description": "خرید بسته اشتراک VIP",
+      "url": "./index.html#/upgrade",
+      "icons": [
+        {
+          "src": "assets/images/icon-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "تنظیمات",
+      "short_name": "تنظیمات",
+      "description": "مدیریت پروفایل و تنظیمات",
+      "url": "./index.html#/settings",
+      "icons": [
+        {
+          "src": "assets/images/icon-96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot-home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "صفحه اصلی صندوق راز"
+    },
+    {
+      "src": "assets/images/screenshot-inbox.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "صندوق پیام‌های ناشناس"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+# ============================================================
+#  AnonBox v3.0 — Root .gitignore
+#  قوانین نادیده‌گیری کل پروژه
+# ============================================================
+
+# ============================================================
+#  Dependencies
+# ============================================================
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnp.*
+.pnp.js
+.pnp.cjs
+
+# ============================================================
+#  Environment Variables
+# ============================================================
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.*.local
+!.env.example
+
+# ============================================================
+#  Database
+# ============================================================
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+bot/data/*.db
+bot/data/*.db-*
+bot/data/backups/
+data/
+backups/
+
+# ============================================================
+#  Logs
+# ============================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+bot/logs/
+
+# ============================================================
+#  Runtime
+# ============================================================
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================================
+#  Coverage & Testing
+# ============================================================
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+cypress/
+cypress/videos/
+cypress/screenshots/
+
+# ============================================================
+#  Build & Distribution
+# ============================================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.cache/
+.parcel-cache/
+*.tgz
+*.tar.gz
+
+# ============================================================
+#  Cache & Temp
+# ============================================================
+.cache/
+.temp/
+.tmp/
+temp/
+.cache-loader/
+.eslintcache
+.stylelintcache
+.tsbuildinfo
+.tscache/
+
+# ============================================================
+#  TypeScript
+# ============================================================
+*.tsbuildinfo
+.tscache/
+
+# ============================================================
+#  OS Files
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ============================================================
+#  IDE & Editor
+# ============================================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+.history/
+*.code-workspace
+
+# ============================================================
+#  Lock & Backup Files
+# ============================================================
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# ============================================================
+#  Sensitive
+# ============================================================
+secrets/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ============================================================
+#  Uploads & User Content
+# ============================================================
+uploads/
+tmp/
+bot/data/uploads/
+bot/data/temp/
+
+# ============================================================
+#  Vercel / Netlify / Firebase / Serverless
+# ============================================================
+.vercel
+.netlify
+.firebase/
+.serverless/
+.sst/
+.aws-sam/
+
+# ============================================================
+#  Docker
+# ============================================================
+docker-compose.override.yml
+*.dockerignore
+
+# ============================================================
+#  Misc
+# ============================================================
+.fuse_hidden*
+.node_repl_history
+.npm
+.watchmanconfig
+.sass-cache/

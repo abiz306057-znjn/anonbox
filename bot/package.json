@@ -1,0 +1,44 @@
+{
+  "name": "anonbox-bot",
+  "version": "3.0.0",
+  "description": "AnonBox v3 — Telegram Anonymous Message Bot Backend with WebApp, i18n, and Telegram Stars",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "migrate": "node ../scripts/migrate.js",
+    "seed": "node ../scripts/seed.js",
+    "health": "node -e \"require('./src/server.js').startServer().then(() => process.exit(0))\""
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "anonymous",
+    "messages",
+    "grammy",
+    "sqlite",
+    "webapp",
+    "i18n",
+    "stars",
+    "package",
+    "referral",
+    "alias"
+  ],
+  "author": "AnonBox",
+  "license": "MIT",
+  "dependencies": {
+    "grammy": "^1.30.0",
+    "express": "^4.21.0",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
