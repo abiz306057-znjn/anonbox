@@ -817,8 +817,8 @@
   if (totalEl) totalEl.textContent = formatNumber(stats.total || 0);
   if (activeEl) activeEl.textContent = formatNumber(stats.active || 0);
   if (rewardsEl) rewardsEl.textContent = formatNumber(stats.rewards || 0);
-
-  // ---- نمایش ۴ سطح پاداش با progress bar ----
+ 
+  
   const rewardsList = document.getElementById('rewards-list');
   if (!rewardsList) {
     console.error('❌ rewards-list پیدا نشد!');
@@ -830,34 +830,35 @@
 
   const tiers = [
     {
-      count: 1,
-      icon: '⏱',
-      title: '۲۴ ساعت نامحدود',
-      desc: 'با هر دعوت فعال می‌شه',
-      unlocked: (rewards.hours24 || 0) > 0,
+     count: 1,
+     icon: '⏱',
+     title: t('referral.reward24hTitle'),
+     desc: t('referral.reward24hDesc'),
+     unlocked: (rewards.hours24 || 0) > 0,
     },
     {
-      count: 3,
-      icon: '📅',
-      title: '۱ هفته نامحدود',
-      desc: 'هر ۳ دعوت، تکرارپذیر',
-      unlocked: (rewards.weeks || 0) > 0,
-    },
-    {
-      count: 10,
-      icon: '📆',
-      title: '۱ ماه نامحدود',
-      desc: 'هر ۱۰ دعوت، تکرارپذیر',
+     count: 3,
+     icon: '📅',
+     title: t('referral.rewardWeeklyTitle'),
+     desc: t('referral.rewardWeeklyDesc'),
+     unlocked: (rewards.weeks || 0) > 0,
+   },
+   {
+     count: 10,
+     icon: '📆',
+     title: t('referral.rewardMonthlyTitle'),
+     desc: t('referral.rewardMonthlyDesc'),
       unlocked: (rewards.months || 0) > 0,
-    },
-    {
-      count: 10,
-      icon: '💬',
-      title: 'بسته پاسخ رایگان',
-      desc: 'هر ۱۰ دعوت',
-      unlocked: (rewards.reply_packages || 0) > 0,
-    },
+   },
+   {
+     count: 10,
+     icon: '💬',
+     title: t('referral.rewardReplyTitle'),
+     desc: t('referral.rewardReplyDesc'),
+     unlocked: (rewards.reply_packages || 0) > 0,
+   },
   ];
+
 
   rewardsList.innerHTML = tiers
     .map((tier) => {
