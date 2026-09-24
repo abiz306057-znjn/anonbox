@@ -1,593 +1,251 @@
-# 🎭 AnonBox v3 — مستندات پروژه
+<div align="center">
 
-مستندات کامل پروژه AnonBox نسخه ۳.۰
+# 🎭 AnonBox — The Secret Box
+
+**Anonymous Telegram messaging bot with a modern WebApp, multilingual support, and Telegram Stars integration**
+
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/abiz306057-znjn/anonbox)
+[![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red.svg)](#-license)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org/)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://t.me/AnonBoxBot)
+[![SQLite](https://img.shields.io/badge/SQLite-3-orange.svg)](https://sqlite.org/)
+
+[Introduction](#-introduction) •
+[Features](#-features) •
+[Usage](#-usage) •
+[Structure](#-project-structure) •
+[Docs](#-documentation) •
+[Purchase](#-purchase)
+
+</div>
 
 ---
 
-## 📖 فهرست
+## 🎯 Introduction
 
-- [معرفی](#-معرفی)
-- [معماری](#-معماری)
-- [نصب](#-نصب)
-- [ساختار پروژه](#-ساختار-پروژه)
-- [بک‌اند](#-بک‌اند)
-- [فرانت‌اند](#-فرانت‌اند)
-- [دیتابیس](#-دیتابیس)
-- [API](#-api)
-- [جریان کاربر](#-جریان-کاربر)
-- [دیباگ](#-دیباگ)
+**AnonBox (The Secret Box)** is a complete platform for receiving and sending anonymous messages on Telegram. With the **Telegram WebApp**, it provides a modern, fast, and delightful user experience and supports in-app payments via **Telegram Stars**.
 
----
+### ✨ Version 3 Features
 
-## 🎯 معرفی
-
-**AnonBox** یه ربات تلگرام پیام ناشناس با WebApp مدرنه.
-
-### ✨ ویژگی‌های اصلی v3
-
-| ویژگی | توضیح |
+| Feature | Description |
 |-------|-------|
-| 🎭 **ناشناسی کامل** | هویت فرستنده هیچ‌وقت فاش نمی‌شه |
-| 🎯 **شناسه ناشناس** | «🦊 ناشناس #۱» برای هر فرستنده |
-| 🌐 **چندزبانه** | فارسی، انگلیسی، عربی |
-| 📱 **SPA** | تک‌فایل HTML با Router |
-| 💰 **۴ بسته** | هفتگی، ماهانه، سالانه، پاسخ |
-| 🆓 **رایگان روزانه** | ۱۰ پیام رایگان |
-| 🎁 **دعوت تکرارپذیر** | پاداش هر بار تکرار می‌شه |
-| 🎵 **موسیقی + افکت** | تجربه صوتی |
-| 🎨 **دو تم** | روشن/تاریک |
-| 📊 **داشبورد ادمین** | آمار زنده |
+| 🎭 **Full Anonymity** | Sender identity is never revealed |
+| 🎯 **Anonymous ID** | "🦊 Anonymous #1" for each sender |
+| 🌐 **Trilingual** | Persian, English, Arabic with automatic RTL/LTR |
+| 📱 **SPA** | Single HTML file with fast router |
+| 💰 **4 Packages** | Weekly, Monthly, Yearly, Reply |
+| 🆓 **Daily Free** | 10 free messages per day |
+| 🎁 **Repeatable Invites** | Rewards are given every time |
+| 🎵 **Music + Effects** | Complete audio experience |
+| 🎨 **Two Themes** | Light and Dark |
+| 📊 **Admin Dashboard** | Live stats + advertising reports |
 
-### 🎯 هدف پروژه
+### 🆚 Why AnonBox?
 
-- **سادگی:** کاربر بدون آموزش بفهمه
-- **سرعت:** لود سریع، بدون reload
-- **امنیت:** HMAC-SHA256 برای WebApp
-- **قابل نگهداری:** کد تمیز و مستند
-
----
-
-## 🏗 معماری
-
-```
-┌──────────────────────────────────────────────┐
-│              Telegram                        │
-│   ┌────────────┐      ┌──────────────┐      │
-│   │  Bot       │      │  WebApp      │      │
-│   │  Commands  │      │  (SPA)       │      │
-│   └─────┬──────┘      └──────┬───────┘      │
-└─────────┼──────────────────────┼─────────────┘
-          │                      │
-          ▼                      ▼
-┌──────────────────────────────────────────────┐
-│         Node.js Backend                      │
-│   ┌──────────────┐   ┌───────────────┐      │
-│   │  Grammy      │   │  Express      │      │
-│   │  (handlers)  │   │  (routes)     │      │
-│   └──────┬───────┘   └───────┬───────┘      │
-│          └───────┬───────────┘               │
-│                  ▼                            │
-│          ┌───────────────┐                    │
-│          │  Services     │                    │
-│          └───────┬───────┘                    │
-│                  ▼                            │
-│          ┌───────────────┐                    │
-│          │  SQLite DB    │                    │
-│          └───────────────┘                    │
-└──────────────────────────────────────────────┘
-```
-
-### 🔧 تکنولوژی‌ها
-
-| بخش | تکنولوژی |
-|-----|----------|
-| **بک‌اند** | Node.js + Grammy + Express |
-| **دیتابیس** | SQLite با WAL |
-| **فرانت** | Vanilla JS + CSS |
-| **PWA** | manifest.json |
-| **پرداخت** | Telegram Stars |
+- 🚀 **Fast:** No reload, no white flash
+- 🎨 **Beautiful:** Modern design with purple/pink gradient
+- 📱 **PWA:** Installable on mobile
+- 🔒 **Secure:** HMAC-SHA256 + HTML Escape
+- 🌍 **Multilingual:** Full RTL support
+- 💎 **Monetizable:** With Telegram Stars
 
 ---
 
-## 🚀 نصب
+## 📸 Project Preview
 
-### پیش‌نیازها
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ Home Page │ │ Message Box │ │ Buy Package │
+│ │ │ │ │ │
+│ 🎭 📬 🎁 │ │ 🦊 Anon #1 │ │ 📅 40 ⭐️ │
+│ 💎 ⚙️ ❓ │ │ 🐼 Anon #2 │ │ 📆 120 ⭐️ │
+│ │ │ │ │ 🗓 1000 ⭐️ │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
 
-- Node.js >= 18
-- npm >= 9
-- اکانت تلگرام
-
-### گام ۱: کلون
-
-```bash
-git clone <repo-url>
-cd anonbox-v3
-```
-
-### گام ۲: نصب بک‌اند
-
-```bash
-cd bot
-npm install
-```
-
-### گام ۳: ساخت ربات
-
-1. برو [@BotFather](https://t.me/BotFather)
-2. `/newbot`
-3. توکن رو ذخیره کن
-
-### گام ۴: تنظیم `.env`
-
-```bash
-cp .env.example .env
-```
-
-ویرایش کن:
-```env
-BOT_TOKEN=your_token_here
-BOT_USERNAME=YourBotUsername
-ADMIN_ID=your_telegram_id
-```
-
-### گام ۵: ساخت دیتابیس
-
-```bash
-cd ..
-node scripts/migrate.js
-```
-
-### گام ۶: اجرا
-
-```bash
-cd bot
-npm start
-```
-
-**دسترسی:**
-- WebApp: `http://localhost:3000/webapp/index.html`
 
 ---
 
-## 📁 ساختار پروژه
+## 📖 Usage
 
-```
+### Bot Commands
+
+| Command | Description |
+|-------|-------|
+| `/start` | Start + get your exclusive link |
+| `/inbox` | Message inbox |
+| `/settings` | Settings |
+| `/language` | Change language (fa/en/ar) |
+| `/help` | Help |
+| `/admin` | Admin panel (admin only) |
+
+### How It Works
+
+1. **Get your link** — Use `/start` to receive your exclusive link
+2. **Share it** — Put the link in your bio or story
+3. **Receive messages** — Friends send you anonymous messages
+4. **Unlock** — With a package or daily free quota
+5. **Reply** — With a reply package
+6. **Invite** — Get rewards
+
+### 💰 Packages
+
+| Package | Price | Duration |
+|------|:---:|:---:|
+| 📅 Weekly | 40 ⭐️ | 7 days |
+| 📆 Monthly | 120 ⭐️ | 30 days |
+| 🗓 Yearly | 1000 ⭐️ | 365 days |
+| 💬 Anonymous Reply | 400 ⭐️ | 30 days |
+
+### 🎁 Invite Rewards (Repeatable)
+
+| Event | Reward |
+|-------|:---:|
+| Every 1 invite | +24 hours |
+| Every 3 invites | +1 week |
+| Every 10 invites | +1 month |
+| Every 10 invites | + 1-month reply package |
+
+**Example:** 10 invites = 10 days + 1 week + 1 month + reply package
+
+---
+
+## 🗂 Project Structure
+
 anonbox-v3/
 │
-├── bot/                          🔧 بک‌اند
-│   ├── src/
-│   │   ├── index.js              ← راه‌انداز ربات
-│   │   ├── config.js             ← تنظیمات
-│   │   ├── server.js             ← سرور HTTP
-│   │   ├── middlewares.js        ← میان‌افزارها
-│   │   ├── actions.js            ← کیبورد + callback
-│   │   ├── utils.js              ← ابزارها
-│   │   ├── i18n.js               ← ترجمه ربات
-│   │   ├── handlers/             ← ۵ هندلر
-│   │   ├── routes/               ← ۶ API route
-│   │   ├── db/                   ← ۸ فایل دیتابیس
-│   │   └── services/             ← ۸ سرویس
-│   ├── data/                     ← دیتابیس
-│   ├── .env
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── package.json
-│   └── README.md
+├── bot/ 🔧 Bot Backend
+│ ├── src/
+│ │ ├── index.js ← Entry point
+│ │ ├── config.js ← Configuration
+│ │ ├── server.js ← HTTP Server
+│ │ ├── middlewares.js ← Middlewares
+│ │ ├── actions.js ← Keyboard + callbacks
+│ │ ├── utils.js ← Utilities
+│ │ ├── i18n.js ← Bot translations
+│ │ ├── handlers/ ← 5 files
+│ │ ├── routes/ ← 6 files
+│ │ ├── db/ ← 8 files
+│ │ └── services/ ← 8 files
+│ ├── data/ ← Database
+│ └── package.json
 │
-├── webapp/                       🎨 فرانت SPA
-│   ├── index.html                ← تنها HTML
-│   ├── manifest.json             ← PWA
-│   ├── css/
-│   │   ├── variables.css
-│   │   ├── base.css
-│   │   ├── components.css
-│   │   ├── layout.css
-│   │   ├── pages.css
-│   │   └── responsive.css
-│   ├── js/
-│   │   ├── core.js               ← telegram+api+ui+theme+audio
-│   │   ├── i18n.js               ← ترجمه فرانت
-│   │   ├── router.js             ← مسیریاب
-│   │   ├── pages.js              ← ۸ صفحه
-│   │   └── app.js                ← راه‌انداز
-│   └── assets/
-│       ├── images/               ← لوگو
-│       └── sounds/               ← صداها
+├── webapp/ 🎨 Frontend SPA
+│ ├── index.html ← Single HTML
+│ ├── manifest.json ← PWA
+│ ├── css/ ← 6 files
+│ ├── js/ ← 5 files
+│ └── assets/
+│ ├── images/
+│ └── sounds/
 │
-├── shared/                       🔗 مشترک
-│   ├── constants.js              ← ثابت‌ها
-│   └── locales.js                ← ترجمه‌ها
+├── shared/ 🔗 Shared
+│ ├── constants.js
+│ └── locales.js
 │
 ├── scripts/
-│   └── migrate.js                ← ساخت دیتابیس
+│ └── migrate.js ← Database builder
 │
 ├── docs/
-│   ├── README.md                 ← این فایل
-│   └── API.md                    ← مستندات API
+│ ├── README.md
+│ └── API.md
 │
 ├── .gitignore
 ├── package.json
 └── README.md
-```
+
 
 ---
 
-## 🔧 بک‌اند
+## 🛠 Technologies
 
-### 📌 `bot/src/index.js`
+### Backend
+| Technology | Purpose |
+|--------|--------|
+| **Node.js 18+** | Runtime |
+| **Grammy** | Bot framework |
+| **Express** | HTTP server |
+| **better-sqlite3** | Database |
+| **dotenv** | Env management |
 
-راه‌انداز ربات:
-- اتصال به Grammy
-- Session middleware
-- ترتیب: `banCheck → auth → rateLimit`
-- راه‌اندازی سرور HTTP موازی
-- Shutdown نرم
-
-### 📌 `bot/src/server.js`
-
-سرور Express:
-- CORS
-- Body parsers
-- Static files (`webapp/`, `assets/`)
-- همه routes با `/api` mount
-- مدیریت خطا
-
-### 📌 `middlewares.js`
-
-| میان‌افزار | کار |
-|-----------|-----|
-| `verifyTelegram` | احراز هویت HMAC |
-| `adminOnly` | فقط ادمین |
-| `auth` | کاربر ربات |
-| `banCheck` | چک بن |
-| `rateLimit` | ضد اسپم |
-
-### 📌 `actions.js`
-
-همه کیبوردها + callback:
-- `mainMenuKeyboard`
-- `inboxKeyboard`
-- `upgradeKeyboard`
-- `languageKeyboard`
-- `adminKeyboard`
-
-### 📌 `handlers/`
-
-| فایل | کار |
-|------|-----|
-| `index.js` | ایندکس |
-| `user.js` | start, settings, language, help |
-| `message.js` | send, inbox, reply |
-| `payment.js` | pre_checkout, successful |
-| `admin.js` | دستورات ادمین |
-
-### 📌 `routes/`
-
-| فایل | مسیر |
-|------|------|
-| `index.js` | ایندکس |
-| `user.js` | `/me`, `/profile`, `/slug` |
-| `message.js` | `/messages` |
-| `payment.js` | `/payments`, `/packages` |
-| `referral.js` | `/referrals` |
-| `admin.js` | `/admin`, `/stats` |
-
-### 📌 `db/`
-
-| فایل | جدول |
-|------|------|
-| `index.js` | اتصال + مهاجرت |
-| `schema.sql` | ساختار ۱۱ جدول |
-| `users.js` | کاربران |
-| `messages.js` | پیام‌ها + بلاک + گزارش |
-| `payments.js` | پرداخت‌ها |
-| `aliases.js` | شناسه‌ها |
-| `visits.js` | بازدیدها |
-| `packages.js` | فعال‌سازی‌ها + پاداش‌ها |
-
-### 📌 `services/`
-
-| فایل | منطق |
-|------|------|
-| `user.js` | کاربر (بسته، رایگان) |
-| `message.js` | پیام (دسترسی، بلاک) |
-| `payment.js` | پرداخت |
-| `package.js` | بسته‌ها |
-| `alias.js` | شناسه ناشناس |
-| `referral.js` | دعوت (تکرارپذیر) |
-| `reply.js` | پاسخ ناشناس |
-| `stats.js` | آمار |
+### Frontend
+| Technology | Purpose |
+|--------|--------|
+| **HTML5** | Structure |
+| **CSS3** | Styling (no framework) |
+| **Vanilla JS** | SPA logic |
+| **Telegram WebApp SDK** | Integration |
+| **i18n** | Multilingual |
 
 ---
 
-## 🎨 فرانت‌اند
+## 📊 Project Stats
 
-### 📌 `index.html`
-
-تنها فایل HTML:
-- هدر (لوگو + LA + تم)
-- `<main id="app-content">` (Router)
-- منوی پایین ثابت (۵ آیتم)
-- Toast + Loader + Modal
-
-### 📌 `js/core.js`
-
-| ماژول | کار |
-|-------|-----|
-| **TelegramApp** | SDK تلگرام |
-| **API** | همه درخواست‌ها |
-| **UI** | Toast, Modal, Loader |
-| **Theme** | روشن/تاریک |
-| **Audio** | موسیقی + افکت |
-
-### 📌 `js/router.js`
-
-- Hash-based: `#/home`, `#/inbox?filter=unread`
-- History stack
-- Auto-interception لینک‌ها
-- 8 route
-
-### 📌 `js/pages.js`
-
-| صفحه | فایل‌ها |
-|------|--------|
-| `home` | لینک + آمار |
-| `inbox` | لیست + فیلتر + مودال |
-| `referral` | لینک دعوت + پاداش |
-| `upgrade` | ۴ پلن + FAQ |
-| `settings` | پروفایل + زبان + تم |
-| `profile` | پروفایل عمومی |
-| `help` | راهنما |
-| `admin` | داشبورد |
-
-### 📌 `js/app.js`
-
-- راه‌اندازی i18n، API
-- Load user data
-- Auto-refresh (۹۰ ثانیه)
-- مدیریت رویدادها
+| Section | File Count |
+|------|:---:|
+| Backend (`bot/`) | 35 |
+| Frontend CSS | 6 |
+| Frontend JS | 5 |
+| HTML | 1 |
+| Manifest | 1 |
+| Shared (`shared/`) | 2 |
+| Scripts | 1 |
+| Docs | 2 |
+| Routes + bot routes | 6 |
+| **📦 Total** | **~59** |
 
 ---
 
-## 💾 دیتابیس
+## 📚 Documentation
 
-### ۱۱ جدول
-
-| جدول | کار |
-|------|-----|
-| `users` | کاربران |
-| `sender_aliases` | شناسه‌های ناشناس |
-| `messages` | پیام‌ها |
-| `payments` | پرداخت‌ها |
-| `reports` | گزارش‌ها |
-| `blocks` | بلاک‌ها |
-| `visits` | بازدیدها |
-| `package_activations` | لاگ فعال‌سازی |
-| `referral_rewards` | لاگ پاداش |
-| `daily_free_log` | لاگ رایگان |
-| `admins` | ادمین‌ها |
-
-### ستون‌های کلیدی `users`
-
-| ستون | توضیح |
-|------|-------|
-| `language` | زبان (fa/en/ar) |
-| `is_vip` | VIP فعال |
-| `vip_expires_at` | انقضای VIP |
-| `reply_package_expires_at` | انقضای بسته پاسخ |
-| `daily_free_used` | مصرف رایگان |
-| `last_seen` | آخرین بازدید |
-| `visit_count` | تعداد بازدید |
-
-### دستورات دیتابیس
-
-```bash
-# ساخت
-node scripts/migrate.js
-
-# وضعیت
-node scripts/migrate.js --status
-
-# ریست
-node scripts/migrate.js --reset --backup
-
-# پشتیبان
-node scripts/migrate.js --backup
-```
+- 📡 [**API.md**](docs/API.md) — All endpoints
+- 📖 [**docs/README.md**](docs/README.md) — Full documentation
 
 ---
 
-## 📡 API
+## 💼 Purchase
 
-مستندات کامل: [API.md](./API.md)
+This project is available for sale. For more information, pricing, live demo, and negotiation:
 
-### نمونه
+📧 **Email:** [ab.iz306057@gmail.com](mailto:ab.iz306057@gmail.com)
 
-```http
-GET /api/me
-X-Telegram-Init-Data: query_id=...&user=...&hash=...
-```
-
-```json
-{
-  "telegram_id": 123456789,
-  "first_name": "علی",
-  "is_vip": true,
-  "package": {
-    "id": "monthly",
-    "days_left": 15
-  },
-  "daily_free": {
-    "limit": 10,
-    "used": 3,
-    "remaining": 7
-  }
-}
-```
+Please use the subject **"AnonBox Project Purchase"** in your email for a faster response.
 
 ---
 
-## 🔄 جریان کاربر
+## 📜 License
 
-### ۱. کاربر جدید
+**All Rights Reserved** © 2026 abiz306057-znjn
 
-```
-لینک ربات
-    ↓
-/start → auth middleware
-    ↓
-کاربر جدید؟
-    ↓
-ساخت اسلاگ + زبان
-    ↓
-بررسی payload (ref_, slug)
-    ↓
-نمایش خوش‌آمد + لینک
-```
-
-### ۲. ارسال پیام ناشناس
-
-```
-کلیک روی لینک دوست
-    ↓
-/start با payload slug
-    ↓
-نوشتن پیام
-    ↓
-send handler:
-  - چک بلاک
-  - چک محدودیت
-  - getOrCreateAlias
-    ↓
-ذخیره با alias_id
-    ↓
-اطلاع به گیرنده
-```
-
-### ۳. دریافت پیام
-
-```
-/inbox
-    ↓
-نمایش آمار + لینک WebApp
-    ↓
-SPA Router → inbox
-    ↓
-API: GET /messages
-    ↓
-سرور چک می‌کنه:
-  - بسته فعال؟
-  - یا رایگان روزانه؟
-    ↓
-نمایش لیست
-```
-
-### ۴. خرید بسته
-
-```
-صفحه upgrade
-    ↓
-انتخاب پلن
-    ↓
-مودال تایید
-    ↓
-POST /payments/package
-    ↓
-sendInvoice (XTR)
-    ↓
-پرداخت
-    ↓
-successful_payment
-    ↓
-activatePackage
-```
-
-### ۵. دعوت دوستان
-
-```
-صفحه referral
-    ↓
-کپی لینک: ref_slug
-    ↓
-دوست کلیک می‌کنه
-    ↓
-/start با ref_
-    ↓
-registerReferral
-    ↓
-applyReferralRewards:
-  - هر ۱: +۲۴ ساعت
-  - هر ۳: +۱ هفته
-  - هر ۱۰: +۱ ماه + بسته پاسخ
-```
+This project and its source code are the exclusive property of the author. No part of this project may be copied, modified, distributed, or used in any form without explicit written permission from the author.
 
 ---
 
-## 🐛 دیباگ
+## 💖 Support
 
-### ربات بالا نمیاد
+If this project helped you:
 
-```bash
-# چک .env
-cat bot/.env
-
-# چک توکن
-curl "https://api.telegram.org/bot${BOT_TOKEN}/getMe"
-
-# چک پورت
-lsof -i :3000
-```
-
-### دیتابیس خطا
-
-```bash
-node scripts/migrate.js --status
-node scripts/migrate.js --reset --backup
-```
-
-### فرانت کار نمی‌کنه
-
-1. `F12` → Console
-2. چک خطاها
-3. چک Network
-4. `Ctrl+Shift+R` (hard refresh)
-
-### لاگ‌ها
-
-```bash
-# لاگ ربات
-tail -f bot/data/anonbox.db-wal
-
-# سیستم
-journalctl -u anonbox -f
-```
+- ⭐ **Star** it
+- 💡 **Share** ideas
+- 📢 **Tell** your friends
 
 ---
 
-## 📊 معیارها
+## 🙏 Credits
 
-| متریک | هدف v3 |
-|-------|:---:|
-| کاربر فعال | ۱٬۰۰۰ |
-| VIP | ۱۵٪ |
-| رضایت | ۴/۵ |
-| زمان لود | < 2s |
-
----
-
-## 🗺 نسخه بعدی
-
-- [ ] اعلان push
-- [ ] آواتار سفارشی
-- [ ] گیمیفیکیشن
-- [ ] اپ مستقل
+- [Grammy](https://grammy.dev) — Bot framework
+- [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) — Database
+- [Express](https://expressjs.com) — Server
+- [Vazirmatn](https://github.com/rastikerdar/vazirmatn) — Persian font
+- [Telegram](https://telegram.org) — Platform
 
 ---
 
-## 📝 لایسنس
+<div align="center">
 
-MIT © AnonBox
+**Made with ❤️ for the Persian-speaking Telegram community**
 
----
+🎭 **The Secret Box — Anonymous messages, without borders**
 
-**آخرین بروزرسانی:** ۱۴۰۳/۰۷/۱۵
+[⬆ Back to top](#-anonbox--the-secret-box)
+
+</div>
+
